@@ -10,7 +10,7 @@ import (
 func TestPath(t *testing.T) {
 	t.Run("FilePathInGoPath()", func(t *testing.T) {
 		gopath := GetGOPATH()
-		relPath := "src/github.com/electronicpanopticon/gobrick/data/foo.txt"
+		relPath := "src/github.com/electronicpanopticon/gobrick/assets/foo.txt"
 		expectedPath := fmt.Sprintf("%s/%s", gopath, relPath)
 
 		path := FilePathInGoPath(relPath)
@@ -25,7 +25,7 @@ func TestPath(t *testing.T) {
 	})
 
 	t.Run("FileInGoPath()", func(t *testing.T) {
-		relPath := "src/github.com/electronicpanopticon/gobrick/data/foo.txt"
+		relPath := "src/github.com/electronicpanopticon/gobrick/assets/foo.txt"
 
 		f, err := FileInGoPath(relPath)
 		b := make([]byte, 3)
