@@ -8,6 +8,15 @@ import (
 func TestOpenBrowser(t *testing.T) {
 	url := "http://electronicpanopticon.com"
 
+	t.Run("OpenBrowser() error", func(t *testing.T) {
+		osOffset = "boopOS"
+
+		err := OpenBrowser(url)
+
+		assert.Error(t, err)
+		osOffset = ""
+	})
+
 	t.Run("openBrowser() linux", func(t *testing.T) {
 		expectedExecCommand := ExecCommand{"xdg-open", []string{url}}
 

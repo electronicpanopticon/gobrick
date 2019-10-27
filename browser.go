@@ -6,12 +6,19 @@ import (
 	"runtime"
 )
 
+var osOffset = ""
+
 /// OpenBrowser opens up a browser in the underlying operating system at the given URL.
-func OpenBrowser(url string) {
-	execCommand, err := openBrowser(runtime.GOOS, url)
-	CheckErr(err)
-	err = exec.Command(execCommand.Name, execCommand.Args...).Start()
-	CheckErr(err)
+func OpenBrowser(url string) error {
+	var goOS = runtime.GOOS
+	if len(osOffset) > 0 {
+		goOS = osOffset
+	}
+	execCommand, err := openBrowser(goOS, url)
+	if err != nil {
+		return err
+	}
+	return exec.Command(execCommand.Name, execCommand.Args...).Start()
 }
 
 /// openBrowser separates out the forming of the command from the executing of the command for testing purposes.
