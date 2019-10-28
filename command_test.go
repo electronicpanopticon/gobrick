@@ -6,6 +6,6 @@ import (
 
 func TestCommandTrapper(t *testing.T) {
 	t.Run("FilePathInGoPath()", func(t *testing.T) {
-
+		// There's no there there.
 	})
 }
