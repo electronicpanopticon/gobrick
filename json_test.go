@@ -1,6 +1,5 @@
 package gobrick
 
-
 import (
 	"github.com/stretchr/testify/assert"
 	"testing"
