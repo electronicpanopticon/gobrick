@@ -6,7 +6,8 @@ import (
 	"strings"
 )
 
-func ToJsonBytes(v interface{}) []byte {
+// ToJSONBytes takes in an entity and returns formatted JSON as a byte array.
+func ToJSONBytes(v interface{}) []byte {
 	b, err := json.MarshalIndent(v, "", "  ")
 	if string(b) == "null" {
 		return nil
@@ -18,10 +19,11 @@ func ToJsonBytes(v interface{}) []byte {
 	return b
 }
 
-func ToJson(v interface{}) string {
-	b := strings.TrimSpace(string(ToJsonBytes(v)))
+// ToJSON takes in an entity and returns a formatted JSON string.
+func ToJSON(v interface{}) string {
+	b := strings.TrimSpace(string(ToJSONBytes(v)))
 	if b == "" || b == "\"\"" {
 		return "{}"
 	}
-	return string(b)
+	return b
 }

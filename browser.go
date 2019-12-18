@@ -8,7 +8,7 @@ import (
 
 var osOffset = ""
 
-/// OpenBrowser opens up a browser in the underlying operating system at the given URL.
+// OpenBrowser opens up a browser in the underlying operating system at the given URL.
 func OpenBrowser(url string) error {
 	var goOS = runtime.GOOS
 	if len(osOffset) > 0 {
@@ -21,7 +21,7 @@ func OpenBrowser(url string) error {
 	return exec.Command(execCommand.Name, execCommand.Args...).Start()
 }
 
-/// openBrowser separates out the forming of the command from the executing of the command for testing purposes.
+// openBrowser separates out the forming of the command from the executing of the command for testing purposes.
 func openBrowser(goOs string, url string) (*ExecCommand, error) {
 	switch goOs {
 	case "linux":

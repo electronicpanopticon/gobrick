@@ -3,9 +3,12 @@ GOCMD=go
 GOMOD=$(GOCMD) mod
 GOTEST=$(GOCMD) test
 
-.PHONY: release test tidy
+.PHONY: lint release test tidy
 
 all: test
+
+lint:
+	golint ./...
 
 release: tidy
 		$(GOCMD) fmt
