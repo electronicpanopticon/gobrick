@@ -44,7 +44,6 @@ func TestOpenBrowser(t *testing.T) {
 		assert.Equal(t, expectedExecCommand, *execCommand)
 	})
 
-
 	t.Run("openBrowser() unsupported", func(t *testing.T) {
 		expectedExecCommand := ExecCommand{}
 
